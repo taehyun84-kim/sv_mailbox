@@ -1,0 +1,3 @@
+#!/bin/bash
+
+verilator --binary -sv -f ./vcode.f --exe --timescale 1ns/1ps --timing
