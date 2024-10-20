@@ -43,4 +43,9 @@ module tb;
         $display("@%0t [TB] Test sequence is started ... ", $time);
         env.run_test();
     end
+
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars();
+    end
 endmodule
