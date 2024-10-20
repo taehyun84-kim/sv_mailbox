@@ -5,6 +5,10 @@ class apb_driver;
     virtual apb_if      vif;
     event               write_done;
 
+    function new();
+        mbox = new();
+    endfunction
+
     task run();
        $display("@%0t [APB_DRIVER] write() starting ...", $time);
        forever begin

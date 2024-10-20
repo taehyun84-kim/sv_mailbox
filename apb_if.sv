@@ -1,3 +1,5 @@
+`ifndef __APB_IF_SV__
+`define __APB_IF_SV__
 interface apb_if(input logic pclk, input logic presetn);
     logic            psel;
     logic            penable;
@@ -8,3 +10,4 @@ interface apb_if(input logic pclk, input logic presetn);
     logic    [31:0]  prdata;
     logic    [1:0]   pslverr; 
 endinterface
+`endif

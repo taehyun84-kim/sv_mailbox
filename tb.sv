@@ -1,4 +1,4 @@
-`include "test.sv"
+`include "tb_env.sv"
 
 module tb;
     timeunit 1ns;
@@ -32,16 +32,15 @@ module tb;
         .pslverr  ( apb_mif.pslverr )
     );
 
-    test    test0;
+    tb_env  env;
 
     initial begin
         $display("@%0t [TB] Test is started ... ", $time);
         wait(presetn);
         $display("@%0t [TB] PRESETn is released ... ", $time);
-        test0 = new();
-        test0.vif = apb_mif;
+        env = new();
+        env.apb_vif = apb_mif;
         $display("@%0t [TB] Test sequence is started ... ", $time);
-        test0.run_test();
-        #100 $finish;
+        env.run_test();
     end
 endmodule
